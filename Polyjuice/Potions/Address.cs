@@ -9,14 +9,55 @@ namespace Polyjuice.Potions
         public static string StateAbbr => StatesAbbr.Rand();
         public static string ZipCode => "#####-####".Numerify();
 
-        public static string StreetName =>
-            2.Randomize() switch
+#if NETSTANDARD
+        public static string StreetName
+        {
+            get
             {
-                0 => $"{Name.LastName} {StreetSufix.Rand()}",
+                switch (2.Randomize())
+                {
+                    case 0:
+                        return $"{Name.LastName} {StreetSufix.Rand()}";
+                    case 1:
+                        return $"{Name.FirstName} {StreetSufix.Rand()}";
+                    default:
+                        return string.Empty;
+                }
+            }
+        }
+#elif NETSTANDARD2_1
+        public static string StreetName =>
+             switch (2.Randomize())
+            {
+                case 0 : $"{Name.LastName} {StreetSufix.Rand()}",
                 1 => $"{Name.FirstName} {StreetSufix.Rand()}",
                 _ => string.Empty
-            };
+            };   
+#endif
 
+#if NETSTANDARD
+        public static string City
+        {
+            get
+            {
+                var prefix = CompassDirections.Union(CityPrefixes);
+
+                switch (4.Randomize())
+                {
+                    case 0:
+                        return $"{prefix} {Name.FirstName}";
+                    case 1:
+                        return $"{prefix} {Name.FirstName}{CitySufix.Rand()}";
+                    case 2:
+                        return $"{Name.FirstName}{CitySufix.Rand()}";
+                    case 3:
+                        return $"{Name.LastName}{CitySufix.Rand()}";
+                    default:
+                        return string.Empty;
+                }
+            }
+        }
+#elif NETSTANDARD2_1   
         public static string City
         {
             get
@@ -32,7 +73,8 @@ namespace Polyjuice.Potions
                     _ => string.Empty
                 };
             }
-        }
+        }  
+#endif      
 
         public static string Location => $"{"###".Numerify()} {StreetName}";
 
