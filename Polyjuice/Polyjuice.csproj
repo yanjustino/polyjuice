@@ -2,18 +2,12 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.1</TargetFramework>
+        <PackageId>Polyjuice</PackageId>
+        <Version>1.0.0</Version>
+        <Authors>Emergingcode</Authors>
+        <Company>Emergingcode</Company>
+        <PackageDescription>Polyjuice Potion is a potion that allows the drinker to assume the form of someone else.</PackageDescription>
+        <RepositoryUrl>https://github.com/emergingcode/polyjuice</RepositoryUrl>        
     </PropertyGroup>
-
-    <ItemGroup>
-      <Folder Include="Data" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <EmbeddedResource Remove="Data\job_adj.resx" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Compile Remove="Data\job_adj.Designer.cs" />
-    </ItemGroup>
 
 </Project>
