@@ -1,7 +1,7 @@
 ![](https://github.com/emergingcode/polyjuice/blob/master/docs/logo.png)
 
 # Status
-![](https://travis-ci.com/emergingcode/polyjuice.svg?branch=master)
+[![build](https://img.shields.io/travis/emergingcode/polyjuice/master)](https://travis-ci.com/emergingcode/polyjuice)
 
 
 # Polyjuice
