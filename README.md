@@ -1,9 +1,15 @@
 ![](https://github.com/emergingcode/polyjuice/blob/master/docs/logo.png)
 
+# Status
+![](https://travis-ci.com/emergingcode/polyjuice.svg?branch=master)
+
+
 # Polyjuice
 It's amazing library to improve your stubs tests. Based on FFaker, a great Ruby test tool, Polyjuice bring the same experiênce to **C# developers**. Also, [Polyjuice is a "dotnet-core" modernization of 'Fact' library](https://github.com/ycodeteam/fact).
 
 ## Install
+[NuGet](https://www.nuget.org/packages/Polyjuice/)
+
 Polyjuice is avaliable on [Nuget](https://www.nuget.org/packages/Polyjuice). NuGet is the package manager for .NET. The NuGet client tools provide the ability to produce and consume packages. The NuGet Gallery is the central package repository used by all package authors and consumers. To install use the options bellow:
 
 
