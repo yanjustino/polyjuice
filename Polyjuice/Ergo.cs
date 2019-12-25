@@ -18,11 +18,8 @@ namespace Polyjuice
             get => Get(when);
         }
 
-        public T this[Type key, string when]
-        {
-            set => Add($"{nameof(key)}::{when}", value);
-            get => Get($"{nameof(key)}::{when}");
-        }        
+        public void SetDefault(T value) => Add("pj-default", value);
+        public T GetDefault() => Get("pj-default");
 
         public void Clear() => Data.Clear();
 

@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <PackageId>Polyjuice</PackageId>
-        <Version>1.0.0</Version>
+        <Version>1.0.1</Version>
         <Authors>Emergingcode</Authors>
         <Company>Emergingcode</Company>
         <PackageDescription>Polyjuice Potion is a potion that allows the drinker to assume the form of someone else.</PackageDescription>
@@ -13,18 +13,11 @@
         <Description>It's amazing library to improve your stubs tests. Based on FFaker, a great Ruby test tool, Polyjuice bring the same experiênce to C# developers. Also, Polyjuice is a "dotnet-core" modernization of 'Fact' library.</Description>
         <Copyright>Emergingcode</Copyright>
         <PackageProjectUrl>https://github.com/emergingcode/polyjuice</PackageProjectUrl>
+        <license>https://github.com/emergingcode/polyjuice/blob/master/LICENSE</license>
         <PackageLicenseUrl>https://github.com/emergingcode/polyjuice/blob/master/LICENSE</PackageLicenseUrl>
         <RepositoryType>git</RepositoryType>
         <PackageTags>tests, dotnet-standard, cshap, software-quality</PackageTags>
-        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>        
+        <icon>https://raw.githubusercontent.com/emergingcode/polyjuice/master/docs/logo_64x64.png</icon>
+        <PackageIconUrl>https://raw.githubusercontent.com/emergingcode/polyjuice/master/docs/logo_64x64.png</PackageIconUrl>
     </PropertyGroup>
-
-    <ItemGroup>
-      <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Compile Remove="Rigidus.cs" />
-    </ItemGroup>
-
 </Project>

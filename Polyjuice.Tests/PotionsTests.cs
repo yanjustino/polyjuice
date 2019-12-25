@@ -13,7 +13,7 @@ namespace Polyjuice.Tests
         [SetUp]
         public void Setup()
         {
-            Ergo<PersonConference>.Current[typeof(PersonConference), "default"] = new PersonConference
+            Ergo<PersonConference>.Current[nameof(PersonConference)] = new PersonConference
             {
                 Language = Locale.Language,
                 LanguageCode = Locale.LanguageCode,
@@ -35,7 +35,7 @@ namespace Polyjuice.Tests
                 Company = Company.CompanyName
             };            
             
-            Ergo<Person>.Current[nameof(Person)] = new Person
+            Ergo<Person>.Current.SetDefault(new Person
             {
                 FirstName = Name.FirstName,
                 LastName = Name.LastName,
@@ -43,7 +43,7 @@ namespace Polyjuice.Tests
                 NameWithPrefix = Name.NameWithPrefix,
                 Gender = Gender.Random,
                 Birthday = DateAndTime.Birthday 
-            };
+            });
             
             Ergo<PersonContacts>.Current[nameof(PersonContacts)] = new PersonContacts
             {
@@ -95,18 +95,20 @@ namespace Polyjuice.Tests
         [Test]
         public void TestPerson()
         {
-            Match("\\w", Ergo<Person>.Current[nameof(Person)].FirstName);
-            Match("\\w", Ergo<Person>.Current[nameof(Person)].LastName);
-            Match("\\w\\s\\w", Ergo<Person>.Current[nameof(Person)].FullName);
-            Match("(Mr.|Ms.\\s\\w*\\s\\w*)", Ergo<Person>.Current[nameof(Person)].NameWithPrefix);
-            Match("(male|female|non-binary|agender|androgyne|bi-gender|pan-gender)", Ergo<Person>.Current[nameof(Person)].Gender);
-            Console.WriteLine(Ergo<Person>.Current[nameof(Person)].Birthday);
+            var person = Ergo<Person>.Current.GetDefault();
+            
+            Match("\\w", person.FirstName);
+            Match("\\w", person.LastName);
+            Match("\\w\\s\\w", person.FullName);
+            Match("(Mr.|Ms.\\s\\w*\\s\\w*)", person.NameWithPrefix);
+            Match("(male|female|non-binary|agender|androgyne|bi-gender|pan-gender)", person.Gender);
+            Console.WriteLine(person.Birthday);
         }
         
         [Test]
         public void TestPersonConference()
         {
-            var conference = Ergo<PersonConference>.Current[typeof(PersonConference), "default"];
+            var conference = Ergo<PersonConference>.Current[nameof(PersonConference)];
             
             Match("\\w", conference.Language);
             Match("\\w{2}", conference.LanguageCode);
