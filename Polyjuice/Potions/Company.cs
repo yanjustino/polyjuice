@@ -4,47 +4,31 @@ namespace Polyjuice.Potions
 {
     public static class Company
     {
-        private static string[] Suffixes { get; } =
-        {
-            "Inc", "Inc and Sons", "LLC", "Group"
-        };
-
-#if NETSTANDARD
-        public static string Name
+        public static string CompanyName
         {
             get
             {
                 switch (3.Randomize())
                 {
                     case 0:
-                        return $"{Polyjuice.Potions.Name.LastName} {Suffixes.Rand()}";
+                        return $"{Name.LastName} {Data.Suffixes.Rand()}";
                     case 1:
-                        return $"{Polyjuice.Potions.Name.LastName}-{Polyjuice.Potions.Name.LastName}";
+                        return $"{Name.LastName}-{Name.LastName}";
                     case 2:
                         return
-                            $"{Polyjuice.Potions.Name.LastName}, {Polyjuice.Potions.Name.LastName} and {Polyjuice.Potions.Name.LastName}";
+                            $"{Name.LastName}, {Name.LastName} and {Name.LastName}";
                     default:
                         return string.Empty;
                 }
             }
         } 
         
-#elif NETSTANDARD2_1
-        
-        public static string Name
+        private static class Data
         {
-            get
+            public static string[] Suffixes { get; } =
             {
-                return 3.Randomize() switch
-                {
-                    0 => $"{Polyjuice.Potions.Name.LastName} {Suffixes.Rand()}",
-                    1 => $"{Polyjuice.Potions.Name.LastName}-{Polyjuice.Potions.Name.LastName}",
-                    2 => $"{Polyjuice.Potions.Name.LastName}, {Polyjuice.Potions.Name.LastName} and {Polyjuice.Potions.Name.LastName}",
-                    _ => string.Empty
-                };
-            }
-        }  
-        
-#endif         
+                "Inc", "Inc and Sons", "LLC", "Group"
+            };
+        }
     }
 }

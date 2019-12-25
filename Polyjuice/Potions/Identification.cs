@@ -4,14 +4,17 @@ namespace Polyjuice.Potions
 {
     public static class Identification
     {
-        public static string DriversLicense =>"###-###-##-###-#".Numerify();
+        public static string DriversLicense => "###-###-##-###-#".Numerify();
         public static string Ssn => "###-##-####".Numerify();
-        public static string Ethnicity => Ethnicities.Rand();
+        public static string Ethnicity => Data.Ethnicities.Rand();
 
-        private static string[] Ethnicities { get; } =
+        private static class Data
         {
-            "African American", "Asian/Pacific Islander", "Caucasian", "Hispanic", "Native American",
-            "Multiracial", "Other", "Prefer not to respond"
-        };
+            public static string[] Ethnicities { get; } =
+            {
+                "African American", "Asian/Pacific Islander", "Caucasian", "Hispanic", "Native American",
+                "Multiracial", "Other", "Prefer not to respond"
+            };
+        }
     }
 }

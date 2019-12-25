@@ -5,6 +5,6 @@ namespace Polyjuice.Potions
 {
     public static class Price
     {
-        public static decimal Value => Convert.ToDecimal("#####.##m".Numerify());
+        public static decimal Value => Convert.ToDecimal("#####.##".Numerify());
     }
 }

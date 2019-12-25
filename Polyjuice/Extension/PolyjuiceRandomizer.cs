@@ -13,21 +13,16 @@ namespace Polyjuice.Extension
     {
         private static Random Random => new Random();
 
-        public static string Rand(this string[] value)
+        public static string Rand(this string[] values)
         {
-            var index = value.Count().Randomize();
-            return value[index];
+            var index = values.Count().Randomize();
+            return values[index];
         }
 
-        public static object[] Rand(this object[,] values)
+        public static int Rand(this int[] values)
         {
-            var index = values.GetLength(0).Randomize();
-
-            return new object[]
-            {
-                values.GetValue(index, 0),
-                values.GetValue(index, 1)
-            };
+            var index = values.Count().Randomize();
+            return values[index];
         }
 
         public static double[] Rand(this double[,] values)
@@ -36,8 +31,8 @@ namespace Polyjuice.Extension
 
             return new double[]
             {
-                (double)values.GetValue(index, 0),
-                (double)values.GetValue(index, 1)
+                (double) values.GetValue(index, 0),
+                (double) values.GetValue(index, 1)
             };
         }
 
@@ -49,6 +44,6 @@ namespace Polyjuice.Extension
         public static int Randomize(this int max, int min = 0)
         {
             return Random.Next(min, max);
-        }        
+        }
     }
 }
