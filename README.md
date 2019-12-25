@@ -131,3 +131,17 @@ This is a guide to contributing to this open source project that uses GitHub. It
 
 If you want to contribute to an open source project, the best one to pick is one that you are using yourself. The maintainers will appreciate it!
 
+## Locales Avaliables
+Polyjuice is avaliable in PT-BR and Generic Values. New versions will bring more locale values. Help us!
+
+# Roadmap
+
+
+
+| Feature       | Date          | 
+| ------------- |:-------------:|
+| Ergo Sum      | 2020 - firstQ |
+| More locales  | 2020          |
+
+* Ergo Sum - It's a feature to auto fill Models.
+* More locales - USA, 
