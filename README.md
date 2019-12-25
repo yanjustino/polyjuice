@@ -59,10 +59,10 @@ var account = new BankAccount
 ```
 > **code 1 - using fakers on models**
 
-## Using Ergon
-Ergon is an amazing feature of Polyjuice. With Ergon you can register your stubs and use then when necessary. See how use Ergon bellow:
+## Using Ergo
+Ergo is an amazing feature of Polyjuice. With Ergo you can register your stubs and use then when necessary. See how use Ergo bellow:
 
-### Ergon with default model
+### Ergo with default model
 Describes a default stub model.
 ```csharp
 
@@ -94,7 +94,7 @@ public void TestPersonB()
 ```
 
 
-### Ergon with context
+### Ergo with context
 Describes a contextualized stub model.
 
 ```csharp
