@@ -9,17 +9,17 @@ Polyjuice is avaliable on [Nuget](https://www.nuget.org/packages/Polyjuice). NuG
 
 ```shell
 # Package Manager
-> Install-Package Polyjuice -Version 1.0.1
+> Install-Package Polyjuice
 ```
 
 ```shell
 # Package Manager
-> dotnet add package Polyjuice --version 1.0.1
+> dotnet add package Polyjuice
 ```
 
 ```xml
 <!-- *.cproj file -->
-<PackageReference Include="Polyjuice" Version="1.0.1" />
+<PackageReference Include="Polyjuice" Version="{VERSION}" />
 ```
 
 
@@ -50,3 +50,84 @@ var account = new BankAccount
 };   
 ```
 > **code 1 - using fakers on models**
+
+## Using Ergon
+Ergon is an amazing feature of Polyjuice. With Ergon you can register your stubs and use then when necessary. See how use Ergon bellow:
+
+### Ergon with default model
+Describes a default stub model.
+```csharp
+
+/// Setup
+Ergo<Person>.Current.SetDefault(new Person
+{
+    FirstName = Name.FirstName,
+    LastName = Name.LastName,
+    FullName = Name.FullName ,
+    NameWithPrefix = Name.NameWithPrefix,
+    Gender = Gender.Random,
+    Birthday = DateAndTime.Birthday 
+});
+
+[Test]
+public void TestPersonA()
+{
+    var person = Ergo<Person>.Current.GetDefault()
+    ...
+}
+
+[Test]
+public void TestPersonB()
+{
+    var person = Ergo<Person>.Current.GetDefault()
+    ...
+}
+
+```
+
+
+### Ergon with context
+Describes a contextualized stub model.
+
+```csharp
+
+/// Setup
+Ergo<Person>.Current["Regular Customer"] = new Person
+{
+    FirstName = Name.FirstName,
+    LastName = Name.LastName,
+    FullName = Name.FullName ,
+    NameWithPrefix = Name.NameWithPrefix,
+    Gender = Gender.Random,
+    Birthday = DateAndTime.Birthday 
+};
+
+[Test]
+public void TestPersonA()
+{
+    var stub = Ergo<Person>.Current["Regular Customer"];
+    ...
+}
+
+[Test]
+public void TestPersonB()
+{
+    var stub = Ergo<Person>.Current["Regular Customer"];
+    ...
+}
+
+```
+
+# Guide to contributing to a GitHub project
+This is a guide to contributing to this open source project that uses GitHub. It’s mostly based on how many open sorce projects operate. That’s all there is to it. The fundamentals are:
+
+* Fork the project & clone locally.
+* Create an upstream remote and sync your local copy before you branch.
+* Branch for each separate piece of work.
+* Do the work, write good commit messages, and read the CONTRIBUTING file if there is one.
+* Push to your origin repository.
+* Create a new PR in GitHub.
+* Respond to any code review feedback.
+
+If you want to contribute to an open source project, the best one to pick is one that you are using yourself. The maintainers will appreciate it!
+
