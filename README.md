@@ -1,4 +1,10 @@
-![](https://github.com/emergingcode/polyjuice/blob/master/docs/logo.png)
+
+
+<p align="center">
+  <img height="200" src="https://github.com/emergingcode/polyjuice/blob/master/docs/logo.png">
+  <h1 align="center">Welcome to the Polyjuice</h1>
+</p>
+
 
 # Status
 [![build](https://img.shields.io/travis/emergingcode/polyjuice/master)](https://travis-ci.com/emergingcode/polyjuice)
