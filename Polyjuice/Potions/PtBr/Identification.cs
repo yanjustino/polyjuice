@@ -56,9 +56,7 @@ namespace Polyjuice.Potions.PtBr
 
                 PrimeiroDigitoVerificadorCpf();
                 SegundoDigitoVerificadorCpf();
-                //*==========================================*
-                //|       Impressao do numero completo       | 
-                //*==========================================*
+
                 for (_i = 1; _i <= 9; _i++)
                 {
                     result += Convert.ToString(_number[_i]);
@@ -120,11 +118,7 @@ namespace Polyjuice.Potions.PtBr
                     _error = 1;
                     do
                     {
-                        if (_error > 1)
-                        {
-                            _error = 1;
-                        }
-
+                        if (_error > 1) _error = 1;
                         _number[_i] = (_rand.Next()) % 9;
                         _error++;
                     } while (_number[_i] > 9 || _number[_i] < 0);
@@ -132,13 +126,9 @@ namespace Polyjuice.Potions.PtBr
 
                 PrimeiroDigitoVerificadorCpf();
                 SegundoDigitoVerificadorCpf();
-                //*==========================================*
-                //|       Impressao do numero completo       | 
-                //*==========================================*
+
                 for (_i = 1; _i <= 9; _i++)
-                {
                     result += Convert.ToString(_number[_i]);
-                }
 
                 result += _dig1 + "" + _dig2 + Environment.NewLine;
             }
@@ -148,13 +138,11 @@ namespace Polyjuice.Potions.PtBr
 
         public static string CnpjComMascara(int size = 1)
         {
-            String result = "";
+            string result = "";
             for (_cnpj = 1; _cnpj <= size; _cnpj++)
             {
                 for (_i = 1; _i <= 8; _i++)
-                {
                     _number[_i] = (_rand.Next()) % 9;
-                }
 
                 _number[9] = 0;
                 _number[10] = 0;
@@ -162,9 +150,7 @@ namespace Polyjuice.Potions.PtBr
                 _number[12] = (_rand.Next()) % 9;
                 PrimeiroDigitoVerificadorCnpj();
                 SegundoDigitoVerificadorCnpj();
-                //*==========================================*
-                //|       Impressao do numero completo       | 
-                //*==========================================*
+
                 for (_i = 1; _i <= 12; _i++)
                 {
                     result += Convert.ToString(_number[_i]);
@@ -224,7 +210,7 @@ namespace Polyjuice.Potions.PtBr
 
         public static string CnpjSemMascara(int size = 1)
         {
-            String result = "";
+            string result = "";
             for (_cnpj = 1; _cnpj <= size; _cnpj++)
             {
                 for (_i = 1; _i <= 8; _i++)
@@ -239,14 +225,10 @@ namespace Polyjuice.Potions.PtBr
                 
                 PrimeiroDigitoVerificadorCnpj();
                 SegundoDigitoVerificadorCnpj();
-                //*==========================================*
-                //|       Impressao do numero completo       | 
-                //*==========================================*
-                //ostrm.SetLength(0);
+
                 for (_i = 1; _i <= 12; _i++)
-                {
                     result += Convert.ToString(_number[_i]);
-                }
+
                 result += _dig1 + "" + _dig2 + Environment.NewLine;
             }
 
