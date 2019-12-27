@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 using NUnit.Framework;
 using Polyjuice.Potions;
 using Polyjuice.Tests.Models;
@@ -147,6 +146,15 @@ namespace Polyjuice.Tests
             Match("(\\w*(\\s|.|,))", Ergo<PersonAddress>.Current[nameof(PersonAddress)].Latitude.ToString());
             Match("(\\w*(\\s|.|,))", Ergo<PersonAddress>.Current[nameof(PersonAddress)].Longitude.ToString());
         }     
+        
+        [Test]
+        public void TestPersonAccountBank()
+        {
+            Match("(\\w*(\\s|.|,))", Ergo<PersonBankAccount>.Current[nameof(PersonBankAccount)].CardNumber);
+            Match("(\\w*(\\s|.|,))", Ergo<PersonBankAccount>.Current[nameof(PersonBankAccount)].CardType);
+            Match("(\\w*(\\s|.|,))", Ergo<PersonBankAccount>.Current[nameof(PersonBankAccount)].CardExpiryDate);
+            Match("(\\w*(\\s|.|,))", Ergo<PersonBankAccount>.Current[nameof(PersonBankAccount)].Iban);
+        }  
         
         [Test]
         public void TestPersonId()

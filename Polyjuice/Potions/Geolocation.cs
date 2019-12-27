@@ -2,6 +2,9 @@ using Polyjuice.Extension;
 
 namespace Polyjuice.Potions
 {
+    /// <summary>
+    /// Technology that shows the place where you are when using the internet or a mobile phone
+    /// </summary>
     public static class Geolocation
     {
         public static double Latitude => Data.Location.Rand()[0];

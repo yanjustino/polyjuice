@@ -2,7 +2,11 @@ using Polyjuice.Extension;
 
 namespace Polyjuice.Potions
 {
-    public class Product
+    /// <summary>
+    /// something that is made to be sold, usually something that is produced by an industrial process or,
+    /// less commonly, something that is grown or obtained through farming:
+    /// </summary>
+    public static class Product
     {
         public static string Name => $"{Data.Adjectives.Rand()} {Data.Nouns.Rand()} {Data.B1.Rand()}";
 

@@ -4,6 +4,9 @@ using Polyjuice.Extension;
 
 namespace Polyjuice.Potions
 {
+    /// <summary>
+    /// A place where you can keep or borrow money
+    /// </summary>
     public static class Bank
     {
         public static string CardNumber => "#### #### #### ####".Numerify();

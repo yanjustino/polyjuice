@@ -1,11 +1,11 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using Polyjuice.Extension;
 
 namespace Polyjuice.Potions
 {
+    /// <summary>
+    /// The number of a building and the name of the street, city, etc. where it is
+    /// </summary>
     public static class Address
     {
         public static string State => Data.States.Rand();

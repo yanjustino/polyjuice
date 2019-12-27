@@ -2,6 +2,9 @@ using Polyjuice.Extension;
 
 namespace Polyjuice.Potions
 {
+    /// <summary>
+    /// The work that you do in order to get money
+    /// </summary>
     public static class Job
     {
         public static string Title => $"{Data.Prefixes.Rand()} {Data.Adjectives.Rand()} {Data.Nouns.Rand()}";

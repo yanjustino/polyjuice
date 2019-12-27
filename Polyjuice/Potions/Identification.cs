@@ -2,6 +2,9 @@ using Polyjuice.Extension;
 
 namespace Polyjuice.Potions
 {
+    /// <summary>
+    /// An official document that shows or proves who you are
+    /// </summary>
     public static class Identification
     {
         public static string DriversLicense => "###-###-##-###-#".Numerify();

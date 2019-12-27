@@ -2,6 +2,10 @@ using Polyjuice.Extension;
 
 namespace Polyjuice.Potions
 {
+    /// <summary>
+    /// A machine, usually with wheels and an engine, used for transporting people or goods on land,
+    /// especially on roads:
+    /// </summary>
     public static class Vehicle
     {
         public static string Make => Data.Makes.Rand();

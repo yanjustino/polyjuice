@@ -29,7 +29,7 @@ namespace Polyjuice.Extension
         {
             var index = values.GetLength(0).Randomize();
 
-            return new double[]
+            return new[]
             {
                 (double) values.GetValue(index, 0),
                 (double) values.GetValue(index, 1)

@@ -19,7 +19,7 @@ namespace Polyjuice.Extension
 
             return stringBuilder.ToString();
         }
-
+        
         public static string Letterify(this string value)
         {
             var stringBuilder = new StringBuilder();

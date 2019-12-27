@@ -1,8 +1,10 @@
-using System.Linq;
 using Polyjuice.Extension;
 
 namespace Polyjuice.Potions
 {
+    /// <summary>
+    /// A system that connects computers around the world so you can share information with other people
+    /// </summary>
     public static class Internet
     {
         public static string HttpUri => Uri("http");

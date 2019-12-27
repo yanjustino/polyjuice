@@ -2,6 +2,9 @@ using Polyjuice.Extension;
 
 namespace Polyjuice.Potions
 {
+    /// <summary>
+    /// An organization that sells things or services
+    /// </summary>
     public static class Company
     {
         public static string CompanyName

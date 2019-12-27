@@ -2,6 +2,9 @@ using Polyjuice.Extension;
 
 namespace Polyjuice.Potions
 {
+    /// <summary>
+    /// A large meeting, often lasting a few days, where people talk about a subject
+    /// </summary>
     public static class Conference
     {
         public static string Title => Data.ConferenceList.Rand();

@@ -1,4 +1,3 @@
-using System;
 using System.Text;
 using Polyjuice.Extension;
 
@@ -7,9 +6,9 @@ namespace Polyjuice.Potions
     public static class Phone
     {
         /// <summary>
-        /// The North American Numbering Plan (NANP) does not permit the digits 0
-        /// and 1 as the leading digit of the exchange code.
-        /// https://en.wikipedia.org/wiki/North_American_Numbering_Plan#Numbering_system
+        /// a device that uses either a system of wires along which electrical signals are sent or a system
+        /// of radio signals to make it possible for you to speak to someone in another place who has a similar
+        /// device:
         /// </summary>
         public static string Number
         {

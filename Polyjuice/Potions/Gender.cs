@@ -1,8 +1,10 @@
-using System;
 using Polyjuice.Extension;
 
 namespace Polyjuice.Potions
 {
+    /// <summary>
+    /// The state of being...
+    /// </summary>
     public static class Gender
     {
         public static string Random => Data.Genders.Rand();
