@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <PackageId>Polyjuice</PackageId>
-        <Version>1.0.2</Version>
+        <Version>1.0.3</Version>
         <Authors>Emergingcode</Authors>
         <Company>Emergingcode</Company>
         <PackageDescription>Polyjuice Potion is a potion that allows the drinker to assume the form of someone else.</PackageDescription>
