@@ -1,9 +1,22 @@
-![](https://github.com/emergingcode/polyjuice/blob/master/docs/logo.png)
+
+
+<p align="center">
+  <img height="200" src="https://github.com/emergingcode/polyjuice/blob/master/docs/logo.png">
+</p>
+
+
+# Status
+[![build](https://img.shields.io/travis/emergingcode/polyjuice/master)](https://travis-ci.com/emergingcode/polyjuice)
+
 
 # Polyjuice
 It's amazing library to improve your stubs tests. Based on FFaker, a great Ruby test tool, Polyjuice bring the same experiênce to **C# developers**. Also, [Polyjuice is a "dotnet-core" modernization of 'Fact' library](https://github.com/ycodeteam/fact).
 
-## Install
+## Installation
+[![latest version](https://img.shields.io/nuget/v/Polyjuice)](https://www.nuget.org/packages/Polyjuice)
+[![downloads](https://img.shields.io/nuget/dt/Polyjuice)](https://www.nuget.org/packages/Polyjuice)
+
+
 Polyjuice is avaliable on [Nuget](https://www.nuget.org/packages/Polyjuice). NuGet is the package manager for .NET. The NuGet client tools provide the ability to produce and consume packages. The NuGet Gallery is the central package repository used by all package authors and consumers. To install use the options bellow:
 
 
@@ -24,7 +37,8 @@ Polyjuice is avaliable on [Nuget](https://www.nuget.org/packages/Polyjuice). NuG
 
 
 ## Using Polyjuice Fakers
-The fakers are little [potions](./Polyjuice/Potions) that provides values to objects attributes. You can use Fakers to build `Address`, `Bank`, `Company`, `Conference`, `Country`, `DateAndTime`, `Gender`, `Geolocation`, `Identification`, `Internet`, `Job`, `Locale`, `Name`, `Phone`, `Price`, `Product` and `Vehicle` attributes. The code 1 shown how use the fakers on models
+The Polyjuice [fakers](https://github.com/emergingcode/polyjuice/wiki/Polyjuice-Fakers) provides values to objects attributes. You can use Fakers to build `Address`, `Bank`, `Company`, `Conference`, `Country`, `DateAndTime`, `Gender`, `Geolocation`, `Identification`, `Internet`, `Job`, `Locale`, `Name`, `Phone`, `Price`, `Product` and `Vehicle` attributes. The code 1 shown how use the fakers on models
+
 
 .
 .
@@ -51,10 +65,10 @@ var account = new BankAccount
 ```
 > **code 1 - using fakers on models**
 
-## Using Ergon
-Ergon is an amazing feature of Polyjuice. With Ergon you can register your stubs and use then when necessary. See how use Ergon bellow:
+## Using Ergo
+Ergo is an amazing feature of Polyjuice. With Ergo you can register your stubs and use then when necessary. See how use Ergo bellow:
 
-### Ergon with default model
+### Ergo with default model
 Describes a default stub model.
 ```csharp
 
@@ -86,7 +100,7 @@ public void TestPersonB()
 ```
 
 
-### Ergon with context
+### Ergo with context
 Describes a contextualized stub model.
 
 ```csharp
@@ -131,3 +145,17 @@ This is a guide to contributing to this open source project that uses GitHub. It
 
 If you want to contribute to an open source project, the best one to pick is one that you are using yourself. The maintainers will appreciate it!
 
+## Locales Avaliables
+Polyjuice is avaliable in PT-BR and Generic Values. New versions will bring more locale values. Help us!
+
+# Roadmap
+
+
+
+| Feature       | Date          | 
+| ------------- |:-------------:|
+| Ergo Sum      | 2020 - firstQ |
+| More locales  | 2020          |
+
+* Ergo Sum - It's a feature to auto fill Models.
+* More locales - USA, 
