@@ -39,47 +39,59 @@ namespace Polyjuice.Potions.PtBr
         private static int[] _number = new int[13];
         private static Random _rand = new Random();
 
-        public static string CpfComMascara(int size = 1)
+        #region CPF
+
+        public static string CpfComMascara()
         {
             var result = new StringBuilder();
-            for (_cpf = 1; _cpf <= size; _cpf++)
-            {
-                CreateCpfArray();
-                PrimeiroDigitoVerificadorCpf();
-                SegundoDigitoVerificadorCpf();
+            CreateCpfArray();
 
-                for (_i = 1; _i <= 9; _i++)
-                {
-                    result.Append(Convert.ToString(_number[_i]));
-                    if (_i - 1 == 2) result.Append(".");
-                    if (_i - 1 == 5) result.Append(".");
-                }
-                
-                result.Append("-");
-                result.Append(_dig1);
-                result.Append(_dig2);
-                result.AppendLine();                  
+            for (_i = 1; _i <= 9; _i++)
+            {
+                result.Append(Convert.ToString(_number[_i]));
+                if (_i - 1 == 2) result.Append(".");
+                if (_i - 1 == 5) result.Append(".");
             }
+
+            result.Append("-");
+            result.Append(_dig1);
+            result.Append(_dig2);
+            result.AppendLine();
+
             return result.ToString();
         }
 
-        private static void SegundoDigitoVerificadorCpf()
+        public static string CpfSemMascara()
         {
-            _sumTwo = ((_number[1] * 11) +
-                       (_number[2] * 10) +
-                       (_number[3] * 9) +
-                       (_number[4] * 8) +
-                       (_number[5] * 7) +
-                       (_number[6] * 6) +
-                       (_number[7] * 5) +
-                       (_number[8] * 4) +
-                       (_number[9] * 3) +
-                       (_dig1 * 2));
-            _parteFive = (_sumTwo / 11);
-            _parteSix = (_parteFive * 11);
-            _parteSeven = (_sumTwo - _parteSix);
-            _dig2 = (11 - _parteSeven);
-            if (_dig2 > 9) _dig2 = 0;
+            var result = new StringBuilder();
+
+            CreateCpfArray();
+
+            for (_i = 1; _i <= 9; _i++)
+                result.Append(Convert.ToString(_number[_i]));
+
+            result.Append(_dig1);
+            result.Append(_dig2);
+            result.AppendLine();
+
+            return result.ToString();
+        }
+
+        private static void CreateCpfArray()
+        {
+            for (_i = 1; _i <= 9; _i++)
+            {
+                _error = 1;
+                do
+                {
+                    if (_error > 1) _error = 1;
+                    _number[_i] = (_rand.Next()) % 9;
+                    _error++;
+                } while (_number[_i] > 9 || _number[_i] < 0);
+            }
+
+            PrimeiroDigitoVerificadorCpf();
+            SegundoDigitoVerificadorCpf();
         }
 
         private static void PrimeiroDigitoVerificadorCpf()
@@ -101,63 +113,61 @@ namespace Polyjuice.Potions.PtBr
             if (_dig1 > 9) _dig1 = 0;
         }
 
-        public static string CpfSemMascara(int size = 1)
+        private static void SegundoDigitoVerificadorCpf()
+        {
+            _sumTwo = ((_number[1] * 11) +
+                       (_number[2] * 10) +
+                       (_number[3] * 9) +
+                       (_number[4] * 8) +
+                       (_number[5] * 7) +
+                       (_number[6] * 6) +
+                       (_number[7] * 5) +
+                       (_number[8] * 4) +
+                       (_number[9] * 3) +
+                       (_dig1 * 2));
+            _parteFive = (_sumTwo / 11);
+            _parteSix = (_parteFive * 11);
+            _parteSeven = (_sumTwo - _parteSix);
+            _dig2 = (11 - _parteSeven);
+            if (_dig2 > 9) _dig2 = 0;
+        }
+
+        #endregion
+
+        #region CNPJ
+
+        public static string CnpjComMascara()
         {
             var result = new StringBuilder();
-            
-            for (_cpf = 1; _cpf <= size; _cpf++)
+            CreateCnpjArray();
+
+            for (_i = 1; _i <= 12; _i++)
             {
-                CreateCpfArray();
-                PrimeiroDigitoVerificadorCpf();
-                SegundoDigitoVerificadorCpf();
-
-                for (_i = 1; _i <= 9; _i++)
-                    result.Append(Convert.ToString(_number[_i]));
-
-                result.Append(_dig1);
-                result.Append(_dig2);
-                result.AppendLine();                
+                result.Append(Convert.ToString(_number[_i]));
+                if (_i == 2) result.Append("."); //imprime um ponto depois da 2ª casa
+                if (_i == 5) result.Append("."); //imprime um ponto depois da 5ª casa
+                if (_i == 8) result.Append("/"); //imprime uma barra depois da 8ª casa
             }
+
+            result.Append("-");
+            result.Append(_dig1);
+            result.Append(_dig2);
+            result.AppendLine();
 
             return result.ToString();
         }
 
-        private static void CreateCpfArray()
-        {
-            for (_i = 1; _i <= 9; _i++)
-            {
-                _error = 1;
-                do
-                {
-                    if (_error > 1) _error = 1;
-                    _number[_i] = (_rand.Next()) % 9;
-                    _error++;
-                } while (_number[_i] > 9 || _number[_i] < 0);
-            }
-        }
-
-        public static string CnpjComMascara(int size = 1)
+        public static string CnpjSemMascara()
         {
             var result = new StringBuilder();
-            for (_cnpj = 1; _cnpj <= size; _cnpj++)
-            {
-                CreateCnpjArray();
-                PrimeiroDigitoVerificadorCnpj();
-                SegundoDigitoVerificadorCnpj();
+            CreateCnpjArray();
 
-                for (_i = 1; _i <= 12; _i++)
-                {
-                    result.Append(Convert.ToString(_number[_i]));
-                    if (_i == 2) result.Append("."); //imprime um ponto depois da 2ª casa
-                    if (_i == 5) result.Append("."); //imprime um ponto depois da 5ª casa
-                    if (_i == 8) result.Append("/"); //imprime uma barra depois da 8ª casa
-                }
-                
-                result.Append("-");
-                result.Append(_dig1);
-                result.Append(_dig2);
-                result.AppendLine();                
-            }
+            for (_i = 1; _i <= 12; _i++)
+                result.Append(Convert.ToString(_number[_i]));
+
+            result.Append(_dig1);
+            result.Append(_dig2);
+            result.AppendLine();
 
             return result.ToString();
         }
@@ -171,6 +181,9 @@ namespace Polyjuice.Potions.PtBr
             _number[10] = 0;
             _number[11] = 0;
             _number[12] = (_rand.Next()) % 9;
+
+            PrimeiroDigitoVerificadorCnpj();
+            SegundoDigitoVerificadorCnpj();
         }
 
         private static void SegundoDigitoVerificadorCnpj()
@@ -216,25 +229,6 @@ namespace Polyjuice.Potions.PtBr
             if (_dig1 > 9) _dig1 = 0;
         }
 
-        public static string CnpjSemMascara(int size = 1)
-        {
-            var result = new StringBuilder();
-            
-            for (_cnpj = 1; _cnpj <= size; _cnpj++)
-            {
-                CreateCnpjArray();
-                PrimeiroDigitoVerificadorCnpj();
-                SegundoDigitoVerificadorCnpj();
-
-                for (_i = 1; _i <= 12; _i++)
-                    result.Append(Convert.ToString(_number[_i]));
-
-                result.Append(_dig1);
-                result.Append(_dig2);
-                result.AppendLine();
-            }
-
-            return result.ToString();
-        }
+        #endregion
     }
 }
