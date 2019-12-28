@@ -1,4 +1,5 @@
 using System;
+using System.Text;
 using Polyjuice.Extension;
 
 namespace Polyjuice.Potions.PtBr
@@ -40,34 +41,26 @@ namespace Polyjuice.Potions.PtBr
 
         public static string CpfComMascara(int size = 1)
         {
-            var result = "";
+            var result = new StringBuilder();
             for (_cpf = 1; _cpf <= size; _cpf++)
             {
-                for (_i = 1; _i <= 9; _i++)
-                {
-                    _error = 1;
-                    do
-                    {
-                        if (_error > 1) _error = 1;
-                        _number[_i] = (_rand.Next()) % 9;
-                        _error++;
-                    } while (_number[_i] > 9 || _number[_i] < 0);
-                }
-
+                CreateCpfArray();
                 PrimeiroDigitoVerificadorCpf();
                 SegundoDigitoVerificadorCpf();
 
                 for (_i = 1; _i <= 9; _i++)
                 {
-                    result += Convert.ToString(_number[_i]);
-                    if (_i - 1 == 2) result += ".";
-                    if (_i - 1 == 5) result += ".";
+                    result.Append(Convert.ToString(_number[_i]));
+                    if (_i - 1 == 2) result.Append(".");
+                    if (_i - 1 == 5) result.Append(".");
                 }
-
-                result += "-" + _dig1 + _dig2 + Environment.NewLine; // dois últimos digitos
+                
+                result.Append("-");
+                result.Append(_dig1);
+                result.Append(_dig2);
+                result.AppendLine();                  
             }
-
-            return result;
+            return result.ToString();
         }
 
         private static void SegundoDigitoVerificadorCpf()
@@ -110,59 +103,74 @@ namespace Polyjuice.Potions.PtBr
 
         public static string CpfSemMascara(int size = 1)
         {
-            var result = "";
+            var result = new StringBuilder();
+            
             for (_cpf = 1; _cpf <= size; _cpf++)
             {
-                for (_i = 1; _i <= 9; _i++)
-                {
-                    _error = 1;
-                    do
-                    {
-                        if (_error > 1) _error = 1;
-                        _number[_i] = (_rand.Next()) % 9;
-                        _error++;
-                    } while (_number[_i] > 9 || _number[_i] < 0);
-                }
-
+                CreateCpfArray();
                 PrimeiroDigitoVerificadorCpf();
                 SegundoDigitoVerificadorCpf();
 
                 for (_i = 1; _i <= 9; _i++)
-                    result += Convert.ToString(_number[_i]);
+                    result.Append(Convert.ToString(_number[_i]));
 
-                result += _dig1 + "" + _dig2 + Environment.NewLine;
+                result.Append(_dig1);
+                result.Append(_dig2);
+                result.AppendLine();                
             }
 
-            return result;
+            return result.ToString();
+        }
+
+        private static void CreateCpfArray()
+        {
+            for (_i = 1; _i <= 9; _i++)
+            {
+                _error = 1;
+                do
+                {
+                    if (_error > 1) _error = 1;
+                    _number[_i] = (_rand.Next()) % 9;
+                    _error++;
+                } while (_number[_i] > 9 || _number[_i] < 0);
+            }
         }
 
         public static string CnpjComMascara(int size = 1)
         {
-            string result = "";
+            var result = new StringBuilder();
             for (_cnpj = 1; _cnpj <= size; _cnpj++)
             {
-                for (_i = 1; _i <= 8; _i++)
-                    _number[_i] = (_rand.Next()) % 9;
-
-                _number[9] = 0;
-                _number[10] = 0;
-                _number[11] = 0;
-                _number[12] = (_rand.Next()) % 9;
+                CreateCnpjArray();
                 PrimeiroDigitoVerificadorCnpj();
                 SegundoDigitoVerificadorCnpj();
 
                 for (_i = 1; _i <= 12; _i++)
                 {
-                    result += Convert.ToString(_number[_i]);
-                    if (_i == 2) result += "."; //imprime um ponto depois da 2ª casa
-                    if (_i == 5) result += "."; //imprime um ponto depois da 5ª casa
-                    if (_i == 8) result += "/"; //imprime uma barra depois da 8ª casa
+                    result.Append(Convert.ToString(_number[_i]));
+                    if (_i == 2) result.Append("."); //imprime um ponto depois da 2ª casa
+                    if (_i == 5) result.Append("."); //imprime um ponto depois da 5ª casa
+                    if (_i == 8) result.Append("/"); //imprime uma barra depois da 8ª casa
                 }
-
-                result += "-" + _dig1 + "" + _dig2 + Environment.NewLine; // dois últimos digitos
+                
+                result.Append("-");
+                result.Append(_dig1);
+                result.Append(_dig2);
+                result.AppendLine();                
             }
 
-            return result;
+            return result.ToString();
+        }
+
+        private static void CreateCnpjArray()
+        {
+            for (_i = 1; _i <= 8; _i++)
+                _number[_i] = (_rand.Next()) % 9;
+
+            _number[9] = 0;
+            _number[10] = 0;
+            _number[11] = 0;
+            _number[12] = (_rand.Next()) % 9;
         }
 
         private static void SegundoDigitoVerificadorCnpj()
@@ -210,29 +218,23 @@ namespace Polyjuice.Potions.PtBr
 
         public static string CnpjSemMascara(int size = 1)
         {
-            string result = "";
+            var result = new StringBuilder();
+            
             for (_cnpj = 1; _cnpj <= size; _cnpj++)
             {
-                for (_i = 1; _i <= 8; _i++)
-                {
-                    _number[_i] = (_rand.Next()) % 9;
-                }
-
-                _number[9] = 0;
-                _number[10] = 0;
-                _number[11] = 0;
-                _number[12] = (_rand.Next()) % 9;
-                
+                CreateCnpjArray();
                 PrimeiroDigitoVerificadorCnpj();
                 SegundoDigitoVerificadorCnpj();
 
                 for (_i = 1; _i <= 12; _i++)
-                    result += Convert.ToString(_number[_i]);
+                    result.Append(Convert.ToString(_number[_i]));
 
-                result += _dig1 + "" + _dig2 + Environment.NewLine;
+                result.Append(_dig1);
+                result.Append(_dig2);
+                result.AppendLine();
             }
 
-            return result;
+            return result.ToString();
         }
     }
 }
