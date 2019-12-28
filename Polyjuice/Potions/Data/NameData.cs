@@ -2,7 +2,7 @@ using Polyjuice.Extension;
 
 namespace Polyjuice.Potions.Data
 {
-        public static class NameData
+        internal static class NameData
         {
             public static string Prefix => "Mr. Ms.".Rand();
 

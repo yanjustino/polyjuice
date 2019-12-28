@@ -1,6 +1,6 @@
 namespace Polyjuice.Potions.Data
 {
-        public static class CountryData
+        internal static class CountryData
         {
             public static string[] Countries { get; } =
             {

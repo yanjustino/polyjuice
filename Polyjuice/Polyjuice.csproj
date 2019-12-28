@@ -20,4 +20,16 @@
         <icon>https://raw.githubusercontent.com/emergingcode/polyjuice/master/docs/logo_64x64.png</icon>
         <PackageIconUrl>https://raw.githubusercontent.com/emergingcode/polyjuice/master/docs/logo_64x64.png</PackageIconUrl>
     </PropertyGroup>
+
+    <ItemGroup>
+      <Compile Remove="Potions\Data\PtBr\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="Potions\Data\PtBr\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Potions\Data\PtBr\**" />
+    </ItemGroup>
 </Project>

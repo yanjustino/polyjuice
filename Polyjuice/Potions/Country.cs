@@ -10,6 +10,5 @@ namespace Polyjuice.Potions
     {
         public static string Name => CountryData.Countries.Rand();
         public static string Code => CountryData.CountryCodes.Rand();
-
     }
 }

@@ -15,6 +15,7 @@ namespace Polyjuice.Potions
         public static string BuildingNumber => "### #####".Rand().Numerify();
         public static string Location => $"{BuildingNumber} {StreetName}";
 
+        
         public static string StreetName
         {
             get

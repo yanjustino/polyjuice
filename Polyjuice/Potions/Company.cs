@@ -7,6 +7,12 @@ namespace Polyjuice.Potions
     /// </summary>
     public static class Company
     {
+        private static string[] Suffixes { get; } =
+        {
+            "Inc", "Inc and Sons", "LLC", "Group"
+        };        
+        
+        
         public static string CompanyName
         {
             get
@@ -14,7 +20,7 @@ namespace Polyjuice.Potions
                 switch (3.Randomize())
                 {
                     case 0:
-                        return $"{Name.LastName} {Data.Suffixes.Rand()}";
+                        return $"{Name.LastName} {Suffixes.Rand()}";
                     case 1:
                         return $"{Name.LastName}-{Name.LastName}";
                     case 2:
@@ -24,14 +30,6 @@ namespace Polyjuice.Potions
                         return string.Empty;
                 }
             }
-        } 
-        
-        private static class Data
-        {
-            public static string[] Suffixes { get; } =
-            {
-                "Inc", "Inc and Sons", "LLC", "Group"
-            };
         }
     }
 }
