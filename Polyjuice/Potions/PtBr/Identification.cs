@@ -24,20 +24,18 @@ namespace Polyjuice.Potions.PtBr
         private static int _sumOne,
             _sumTwo,
             _i,
-            _error,
-            _cnpj,
-            _cpf,
-            _partOne,
-            _parteTwo,
-            _parteThree,
             _dig1,
-            _parteFive,
-            _parteSix,
-            _parteSeven,
-            _dig2;
+            _dig2,
+            _error,
+            _partOne,
+            _partTwo,
+            _partThree,
+            _partFive,
+            _pateSix,
+            _partSeven;
 
-        private static int[] _number = new int[13];
-        private static Random _rand = new Random();
+        private static int[] Number { get; } = new int[13];
+        private static Random Rand { get; } = new Random();
 
         #region CPF
 
@@ -48,7 +46,7 @@ namespace Polyjuice.Potions.PtBr
 
             for (_i = 1; _i <= 9; _i++)
             {
-                result.Append(Convert.ToString(_number[_i]));
+                result.Append(Convert.ToString(Number[_i]));
                 if (_i - 1 == 2) result.Append(".");
                 if (_i - 1 == 5) result.Append(".");
             }
@@ -68,7 +66,7 @@ namespace Polyjuice.Potions.PtBr
             CreateCpfArray();
 
             for (_i = 1; _i <= 9; _i++)
-                result.Append(Convert.ToString(_number[_i]));
+                result.Append(Convert.ToString(Number[_i]));
 
             result.Append(_dig1);
             result.Append(_dig2);
@@ -85,9 +83,9 @@ namespace Polyjuice.Potions.PtBr
                 do
                 {
                     if (_error > 1) _error = 1;
-                    _number[_i] = (_rand.Next()) % 9;
+                    Number[_i] = (Rand.Next()) % 9;
                     _error++;
-                } while (_number[_i] > 9 || _number[_i] < 0);
+                } while (Number[_i] > 9 || Number[_i] < 0);
             }
 
             PrimeiroDigitoVerificadorCpf();
@@ -96,39 +94,39 @@ namespace Polyjuice.Potions.PtBr
 
         private static void PrimeiroDigitoVerificadorCpf()
         {
-            _sumOne = ((_number[1] * 10) +
-                       (_number[2] * 9) +
-                       (_number[3] * 8) +
-                       (_number[4] * 7) +
-                       (_number[5] * 6) +
-                       (_number[6] * 5) +
-                       (_number[7] * 4) +
-                       (_number[8] * 3) +
-                       (_number[9] * 2));
+            _sumOne = ((Number[1] * 10) +
+                       (Number[2] * 9) +
+                       (Number[3] * 8) +
+                       (Number[4] * 7) +
+                       (Number[5] * 6) +
+                       (Number[6] * 5) +
+                       (Number[7] * 4) +
+                       (Number[8] * 3) +
+                       (Number[9] * 2));
             _partOne = (_sumOne / 11);
-            _parteTwo = (_partOne * 11);
-            _parteThree = (_sumOne - _parteTwo);
+            _partTwo = (_partOne * 11);
+            _partThree = (_sumOne - _partTwo);
 
-            _dig1 = (11 - _parteThree);
+            _dig1 = (11 - _partThree);
             if (_dig1 > 9) _dig1 = 0;
         }
 
         private static void SegundoDigitoVerificadorCpf()
         {
-            _sumTwo = ((_number[1] * 11) +
-                       (_number[2] * 10) +
-                       (_number[3] * 9) +
-                       (_number[4] * 8) +
-                       (_number[5] * 7) +
-                       (_number[6] * 6) +
-                       (_number[7] * 5) +
-                       (_number[8] * 4) +
-                       (_number[9] * 3) +
+            _sumTwo = ((Number[1] * 11) +
+                       (Number[2] * 10) +
+                       (Number[3] * 9) +
+                       (Number[4] * 8) +
+                       (Number[5] * 7) +
+                       (Number[6] * 6) +
+                       (Number[7] * 5) +
+                       (Number[8] * 4) +
+                       (Number[9] * 3) +
                        (_dig1 * 2));
-            _parteFive = (_sumTwo / 11);
-            _parteSix = (_parteFive * 11);
-            _parteSeven = (_sumTwo - _parteSix);
-            _dig2 = (11 - _parteSeven);
+            _partFive = (_sumTwo / 11);
+            _pateSix = (_partFive * 11);
+            _partSeven = (_sumTwo - _pateSix);
+            _dig2 = (11 - _partSeven);
             if (_dig2 > 9) _dig2 = 0;
         }
 
@@ -143,7 +141,7 @@ namespace Polyjuice.Potions.PtBr
 
             for (_i = 1; _i <= 12; _i++)
             {
-                result.Append(Convert.ToString(_number[_i]));
+                result.Append(Convert.ToString(Number[_i]));
                 if (_i == 2) result.Append("."); //imprime um ponto depois da 2ª casa
                 if (_i == 5) result.Append("."); //imprime um ponto depois da 5ª casa
                 if (_i == 8) result.Append("/"); //imprime uma barra depois da 8ª casa
@@ -163,7 +161,7 @@ namespace Polyjuice.Potions.PtBr
             CreateCnpjArray();
 
             for (_i = 1; _i <= 12; _i++)
-                result.Append(Convert.ToString(_number[_i]));
+                result.Append(Convert.ToString(Number[_i]));
 
             result.Append(_dig1);
             result.Append(_dig2);
@@ -175,12 +173,12 @@ namespace Polyjuice.Potions.PtBr
         private static void CreateCnpjArray()
         {
             for (_i = 1; _i <= 8; _i++)
-                _number[_i] = (_rand.Next()) % 9;
+                Number[_i] = (Rand.Next()) % 9;
 
-            _number[9] = 0;
-            _number[10] = 0;
-            _number[11] = 0;
-            _number[12] = (_rand.Next()) % 9;
+            Number[9] = 0;
+            Number[10] = 0;
+            Number[11] = 0;
+            Number[12] = (Rand.Next()) % 9;
 
             PrimeiroDigitoVerificadorCnpj();
             SegundoDigitoVerificadorCnpj();
@@ -188,44 +186,44 @@ namespace Polyjuice.Potions.PtBr
 
         private static void SegundoDigitoVerificadorCnpj()
         {
-            _sumTwo = ((_number[1] * 6) +
-                       (_number[2] * 5) +
-                       (_number[3] * 4) +
-                       (_number[4] * 3) +
-                       (_number[5] * 2) +
-                       (_number[6] * 9) +
-                       (_number[7] * 8) +
-                       (_number[8] * 7) +
-                       (_number[9] * 6) +
-                       (_number[10] * 5) +
-                       (_number[11] * 4) +
-                       (_number[12] * 3) +
+            _sumTwo = ((Number[1] * 6) +
+                       (Number[2] * 5) +
+                       (Number[3] * 4) +
+                       (Number[4] * 3) +
+                       (Number[5] * 2) +
+                       (Number[6] * 9) +
+                       (Number[7] * 8) +
+                       (Number[8] * 7) +
+                       (Number[9] * 6) +
+                       (Number[10] * 5) +
+                       (Number[11] * 4) +
+                       (Number[12] * 3) +
                        (_dig1 * 2));
-            _parteFive = (_sumTwo / 11);
-            _parteSix = (_parteFive * 11);
-            _parteSeven = (_sumTwo - _parteSix);
-            _dig2 = (11 - _parteSeven);
+            _partFive = (_sumTwo / 11);
+            _pateSix = (_partFive * 11);
+            _partSeven = (_sumTwo - _pateSix);
+            _dig2 = (11 - _partSeven);
             if (_dig2 > 9) _dig2 = 0;
         }
 
         private static void PrimeiroDigitoVerificadorCnpj()
         {
-            _sumOne = ((_number[1] * 5) +
-                       (_number[2] * 4) +
-                       (_number[3] * 3) +
-                       (_number[4] * 2) +
-                       (_number[5] * 9) +
-                       (_number[6] * 8) +
-                       (_number[7] * 7) +
-                       (_number[8] * 6) +
-                       (_number[9] * 5) +
-                       (_number[10] * 4) +
-                       (_number[11] * 3) +
-                       (_number[12] * 2));
+            _sumOne = ((Number[1] * 5) +
+                       (Number[2] * 4) +
+                       (Number[3] * 3) +
+                       (Number[4] * 2) +
+                       (Number[5] * 9) +
+                       (Number[6] * 8) +
+                       (Number[7] * 7) +
+                       (Number[8] * 6) +
+                       (Number[9] * 5) +
+                       (Number[10] * 4) +
+                       (Number[11] * 3) +
+                       (Number[12] * 2));
             _partOne = (_sumOne / 11);
-            _parteTwo = (_partOne * 11);
-            _parteThree = (_sumOne - _parteTwo);
-            _dig1 = (11 - _parteThree);
+            _partTwo = (_partOne * 11);
+            _partThree = (_sumOne - _partTwo);
+            _dig1 = (11 - _partThree);
             if (_dig1 > 9) _dig1 = 0;
         }
 

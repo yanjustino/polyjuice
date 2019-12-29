@@ -9,9 +9,9 @@ namespace Polyjuice.Potions
     public static class Name
     {
         public static string FirstName => NameData.FirstNames.Rand();
-        public static string Prefix => "Mr. Ms.".Rand();
+        public static string Prefix => NameData.Prefix.Rand();
         public static string LastName => NameData.LastNames.Rand();
         public static string FullName => $"{FirstName} {LastName}";
-        public static string NameWithPrefix => $"{NameData.Prefix} {FirstName} {LastName}";
+        public static string NameWithPrefix => $"{NameData.Prefix.Rand()} {FirstName} {LastName}";
     }
 }

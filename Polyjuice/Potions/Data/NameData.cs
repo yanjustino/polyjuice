@@ -4,7 +4,7 @@ namespace Polyjuice.Potions.Data
 {
         internal static class NameData
         {
-            public static string Prefix => "Mr. Ms.".Rand();
+            public static string Prefix => "Mr. Ms.";
 
             public static string[] FirstNames { get; } =
             {
