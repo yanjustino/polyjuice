@@ -7,7 +7,7 @@
 
 # Status
 [![build](https://img.shields.io/travis/emergingcode/polyjuice/master)](https://travis-ci.com/emergingcode/polyjuice)
-[![analysis](https://img.shields.io/codeclimate/maintainability/emergingcode/polyjuice)](https://img.shields.io/codeclimate/maintainability/emergingcode/polyjuice)
+[![analysis](https://img.shields.io/codeclimate/maintainability/emergingcode/polyjuice)](https://codeclimate.com/github/emergingcode/polyjuice)
 
 # Polyjuice
 It's amazing library to improve your stubs tests. Based on FFaker, a great Ruby test tool, Polyjuice bring the same experiênce to **C# developers**. Also, [Polyjuice is a "dotnet-core" modernization of 'Fact' library](https://github.com/ycodeteam/fact).
