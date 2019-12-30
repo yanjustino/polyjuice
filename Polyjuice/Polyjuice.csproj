@@ -22,14 +22,26 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Compile Remove="Potions\Data\PtBr\**" />
-    </ItemGroup>
+        <None Remove="Potions\Data\Address\*.data"/>
+        <None Remove="Potions\Data\Bank\*.data"/>
+        <None Remove="Potions\Data\Conference\*.data"/>
+        <None Remove="Potions\Data\Gender\*.data"/>
+        <None Remove="Potions\Data\Internet\*.data"/>
+        <None Remove="Potions\Data\Job\*.data"/>
+        <None Remove="Potions\Data\Location\*.data"/>
+        <None Remove="Potions\Data\Name\*.data"/>
+        <None Remove="Potions\Data\Product\*.data"/>
+        <None Remove="Potions\Data\Vehicle\*.data"/>
 
-    <ItemGroup>
-      <EmbeddedResource Remove="Potions\Data\PtBr\**" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <None Remove="Potions\Data\PtBr\**" />
+        <EmbeddedResource Include="Potions\Data\Address\*.data"/>
+        <EmbeddedResource Include="Potions\Data\Bank\*.data"/>
+        <EmbeddedResource Include="Potions\Data\Conference\*.data"/>
+        <EmbeddedResource Include="Potions\Data\Gender\*.data"/>
+        <EmbeddedResource Include="Potions\Data\Internet\*.data"/>
+        <EmbeddedResource Include="Potions\Data\Job\*.data"/>
+        <EmbeddedResource Include="Potions\Data\Location\*.data"/>
+        <EmbeddedResource Include="Potions\Data\Name\*.data"/>
+        <EmbeddedResource Include="Potions\Data\Product\*.data"/>
+        <EmbeddedResource Include="Potions\Data\Vehicle\*.data"/>        
     </ItemGroup>
 </Project>

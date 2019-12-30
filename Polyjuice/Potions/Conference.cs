@@ -1,5 +1,6 @@
 using Polyjuice.Extension;
-using Polyjuice.Potions.Data;
+using  static  Polyjuice.Potions.Data.DataReader;
+
 
 namespace Polyjuice.Potions
 {
@@ -8,6 +9,6 @@ namespace Polyjuice.Potions
     /// </summary>
     public static class Conference
     {
-        public static string Title => ConferenceData.ConferenceList.Rand();
+        public static string Title => Read("Conference",  "ConferenceList").Rand();
     }
 }

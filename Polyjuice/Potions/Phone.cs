@@ -3,13 +3,15 @@ using Polyjuice.Extension;
 
 namespace Polyjuice.Potions
 {
+    /// <summary>
+    /// a device that uses either a system of wires along which electrical signals are sent or a system
+    /// of radio signals to make it possible for you to speak to someone in another place who has a similar
+    /// device:
+    /// </summary>    
     public static class Phone
     {
-        /// <summary>
-        /// a device that uses either a system of wires along which electrical signals are sent or a system
-        /// of radio signals to make it possible for you to speak to someone in another place who has a similar
-        /// device:
-        /// </summary>
+
+        // Properties
         public static string Number
         {
             get

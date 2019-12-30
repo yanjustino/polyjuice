@@ -1,5 +1,6 @@
 using Polyjuice.Extension;
-using Polyjuice.Potions.Data;
+using  static  Polyjuice.Potions.Data.DataReader;
+
 
 namespace Polyjuice.Potions
 {
@@ -8,7 +9,8 @@ namespace Polyjuice.Potions
     /// </summary>
     public static class Country
     {
-        public static string Name => CountryData.Countries.Rand();
-        public static string Code => CountryData.CountryCodes.Rand();
+        // Properties
+        public static string Name => Read("Location", "Countries").Rand();
+        public static string Code => Read("Location", "CountryCodes").Rand();
     }
 }

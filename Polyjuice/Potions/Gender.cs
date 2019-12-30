@@ -1,4 +1,6 @@
 using Polyjuice.Extension;
+using  static  Polyjuice.Potions.Data.DataReader;
+
 
 namespace Polyjuice.Potions
 {
@@ -7,8 +9,8 @@ namespace Polyjuice.Potions
     /// </summary>
     public static class Gender
     {
-        private static string Genders => "male female non-binary agender androgyne bi-gender pan-gender";
         private static string BinaryGenders => "male female";
+        private static string Genders => Read("Gender", "Genders").Rand();
         
         
         public static string Random => Genders.Rand();

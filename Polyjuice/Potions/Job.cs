@@ -1,5 +1,5 @@
 using Polyjuice.Extension;
-using Polyjuice.Potions.Data;
+using  static  Polyjuice.Potions.Data.DataReader;
 
 namespace Polyjuice.Potions
 {
@@ -8,6 +8,9 @@ namespace Polyjuice.Potions
     /// </summary>
     public static class Job
     {
-        public static string Title => $"{JobData.Prefixes.Rand()} {JobData.Adjectives.Rand()} {JobData.Nouns.Rand()}";
+        public static string Title => 
+            $"{Read("Job","JobPrefixes").Rand()} " +
+            $"{Read("Job","JobAdjectives").Rand()} " +
+            $"{Read("Job","JobNouns").Rand()}";
     }
 }

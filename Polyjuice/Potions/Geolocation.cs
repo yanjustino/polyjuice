@@ -1,5 +1,5 @@
 using Polyjuice.Extension;
-using Polyjuice.Potions.Data;
+using  static  Polyjuice.Potions.Data.DataReader;
 
 namespace Polyjuice.Potions
 {
@@ -8,7 +8,7 @@ namespace Polyjuice.Potions
     /// </summary>
     public static class Geolocation
     {
-        public static double Latitude => GeolocationData.Location.Rand()[0];
-        public static double Longitude => GeolocationData.Location.Rand()[1];
+        public static double Latitude => double.Parse(Read("Location", "Latitude").Rand());
+        public static double Longitude => double.Parse(Read("Location", "Longitude").Rand());
     }
 }

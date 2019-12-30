@@ -1,5 +1,6 @@
 using Polyjuice.Extension;
-using Polyjuice.Potions.Data;
+using  static  Polyjuice.Potions.Data.DataReader;
+
 
 namespace Polyjuice.Potions
 {
@@ -8,10 +9,15 @@ namespace Polyjuice.Potions
     /// </summary>
     public static class Name
     {
-        public static string FirstName => NameData.FirstNames.Rand();
-        public static string Prefix => NameData.Prefix.Rand();
-        public static string LastName => NameData.LastNames.Rand();
+        // Private Data
+        public static string Prefixes => "Mr. Ms.";
+        
+        
+        // Propeties
+        public static string FirstName => Read("Name", "FirstNames").Rand();
+        public static string Prefix => Prefixes.Rand();
+        public static string LastName => Read("Name", "LastNames").Rand();
         public static string FullName => $"{FirstName} {LastName}";
-        public static string NameWithPrefix => $"{NameData.Prefix.Rand()} {FirstName} {LastName}";
+        public static string NameWithPrefix => $"{Prefixes.Rand()} {FirstName} {LastName}";
     }
 }

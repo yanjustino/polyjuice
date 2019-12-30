@@ -1,17 +1,17 @@
 using Polyjuice.Extension;
+using  static  Polyjuice.Potions.Data.DataReader;
+
 
 namespace Polyjuice.Potions.PtBr
 {
     public static class Gender
     {
-        private static string Genders =>
-            "Feminino Masculino Não-binário Agênero Andrógino Assexual Bissexual Pansexual Transgênero Transexual Lésbica homossexual";
-        
-        private static string BinaryGenders =>
-            "Feminino Masculino";    
+        // Private Data
+        private static string BinaryGenders => "Feminino Masculino";    
         
         
-        public static string Random => Genders.Rand();
+        // Properties
+        public static string Random =>Read("Gender", "GendersPtBr").Rand();
         public static string Binary => BinaryGenders.Rand();
     }
 }

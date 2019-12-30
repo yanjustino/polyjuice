@@ -1,18 +1,24 @@
 using System.Linq;
 using Polyjuice.Extension;
-using Polyjuice.Potions.Data;
+using  static  Polyjuice.Potions.Data.DataReader;
 
 namespace Polyjuice.Potions.PtBr
 {
     public static class Name
     {
-        public static string[] FirstNames => NameDataPtBr.FirstNamesFemale.Union(NameDataPtBr.FirstNamesMale).ToArray();
-        public static string Prefixes => $"{NameDataPtBr.FemalePrefixes} {NameDataPtBr.MalePrefixes}";
-        public static string LastName => NameDataPtBr.LastNames.Rand();
-        public static string FirstNameFemale => NameDataPtBr.FirstNamesFemale.Rand();
-        public static string FirstNameMale => NameDataPtBr.FirstNamesMale.Rand();
-        public static string FemalePrefix => NameDataPtBr.FemalePrefixes.Rand();
-        public static string MalePrefix => NameDataPtBr.MalePrefixes.Rand();
+        // Private Data
+        private static string FemalePrefixes => "Sr. Sra. Srta.";
+        private static string MalePrefixes => "Sr";
+        private static string[] FirstNames => Read("Name", "FirstNamesFemalePtBr").Union(Read("Name", "FirstNamesMalePtBr")).ToArray();
+        private static string Prefixes => $"{FemalePrefixes} {MalePrefixes}";
+        
+
+        // Properties
+        public static string LastName => Read("Name", "LastNamesPtBr").Rand();
+        public static string FirstNameFemale => Read("Name", "FirstNamesFemalePtBr").Rand();
+        public static string FirstNameMale => Read("Name", "FirstNamesMalePtBr").Rand();
+        public static string FemalePrefix => FemalePrefixes.Rand();
+        public static string MalePrefix => MalePrefixes.Rand();
         public static string FirstName => FirstNames.Rand();
         public static string Prefix => Prefixes.Rand();
         public static string FullName => $"{FirstName} {LastName}";

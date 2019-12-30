@@ -1,5 +1,5 @@
 using Polyjuice.Extension;
-using Polyjuice.Potions.Data;
+using  static  Polyjuice.Potions.Data.DataReader;
 
 namespace Polyjuice.Potions
 {
@@ -9,6 +9,9 @@ namespace Polyjuice.Potions
     /// </summary>
     public static class Product
     {
-        public static string Name => $"{ProductData.Adjectives.Rand()} {ProductData.Nouns.Rand()} {ProductData.B1.Rand()}";
+        public static string Name => 
+            $"{Read("Product", "ProductAdjectives").Rand()} " +
+            $"{Read("Product", "ProductNouns").Rand()} " +
+            $"{Read("Product", "ProductB1").Rand()}";
     }
 }

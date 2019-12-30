@@ -17,4 +17,8 @@
       <ProjectReference Include="..\Polyjuice\Polyjuice.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Remove="Performance.cs" />
+    </ItemGroup>
+
 </Project>

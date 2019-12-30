@@ -7,12 +7,13 @@ namespace Polyjuice.Potions
     /// </summary>
     public static class Company
     {
+        // Private Data
         private static string[] Suffixes { get; } =
         {
             "Inc", "Inc and Sons", "LLC", "Group"
         };        
         
-        
+        // Methods
         public static string CompanyName
         {
             get

@@ -1,5 +1,5 @@
 using Polyjuice.Extension;
-using Polyjuice.Potions.Data;
+using  static  Polyjuice.Potions.Data.DataReader;
 
 namespace Polyjuice.Potions
 {
@@ -8,7 +8,7 @@ namespace Polyjuice.Potions
     /// </summary>
     public static class Locale
     {
-        public static string Language => LocaleData.Languages.Rand();
-        public static string LanguageCode => LocaleData.LanguageCodes.Rand();
+        public static string Language => Read("Location", "Languages").Rand();
+        public static string LanguageCode => Read("Location", "LanguageCodes").Rand();
     }
 }

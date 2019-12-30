@@ -1,6 +1,7 @@
+using System.Collections.Generic;
 using System.Linq;
 using Polyjuice.Extension;
-using Polyjuice.Potions.Data;
+using  static  Polyjuice.Potions.Data.DataReader;
 
 namespace Polyjuice.Potions
 {
@@ -9,13 +10,20 @@ namespace Polyjuice.Potions
     /// </summary>
     public static class Address
     {
-        public static string State => AddressData.States.Rand();
-        public static string StateAbbr => AddressData.StatesAbbr.Rand();
+        // Private Data
+        private static IEnumerable<string> CityPrefixes { get; } = new []{"New", "Lake", "Port"};
+        private static IEnumerable<string> CompassDirections { get; } = new [] {"North", "East", "West", "South"};        
+        
+        
+        // Properties
+        public static string State => Read("Address","States").Rand();
+        public static string StateAbbr => Read("Address","StatesAbbr").Rand();
         public static string ZipCode => "#####-####".Numerify();
         public static string BuildingNumber => "### #####".Rand().Numerify();
         public static string Location => $"{BuildingNumber} {StreetName}";
 
         
+        //  Methods
         public static string StreetName
         {
             get
@@ -23,9 +31,9 @@ namespace Polyjuice.Potions
                 switch (2.Randomize())
                 {
                     case 0:
-                        return $"{Name.LastName} {AddressData.StreetSufix.Rand()}";
+                        return $"{Name.LastName} {Read("Address", "StreetSufix").Rand()}";
                     case 1:
-                        return $"{Name.FirstName} {AddressData.StreetSufix.Rand()}";
+                        return $"{Name.FirstName} {Read("Address","StreetSufix").Rand()}";
                     default:
                         return string.Empty;
                 }
@@ -36,18 +44,18 @@ namespace Polyjuice.Potions
         {
             get
             {
-                var prefix = AddressData.CompassDirections.Union(AddressData.CityPrefixes).ToArray();
+                var prefix = CompassDirections.Union(CityPrefixes).ToArray();
                 
                 switch (4.Randomize())
                 {
                     case 0:
                         return $"{prefix.Rand()} {Name.FirstName}";
                     case 1:
-                        return $"{prefix.Rand()} {Name.FirstName} {AddressData.CitySufix.Rand()}";
+                        return $"{prefix.Rand()} {Name.FirstName} {Read("Address","CitySufix").Rand()}";
                     case 2:
-                        return $"{Name.FirstName} {AddressData.CitySufix.Rand()}";
+                        return $"{Name.FirstName} {Read("Address","CitySufix").Rand()}";
                     case 3:
-                        return $"{Name.LastName} {AddressData.CitySufix.Rand()}";
+                        return $"{Name.LastName} {Read("Address","CitySufix").Rand()}";
                     default:
                         return string.Empty;
                 }

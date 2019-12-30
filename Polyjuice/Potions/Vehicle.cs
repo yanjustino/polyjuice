@@ -1,5 +1,6 @@
 using Polyjuice.Extension;
-using Polyjuice.Potions.Data;
+using  static  Polyjuice.Potions.Data.DataReader;
+
 
 namespace Polyjuice.Potions
 {
@@ -9,8 +10,8 @@ namespace Polyjuice.Potions
     /// </summary>
     public static class Vehicle
     {
-        public static string Make => VehicleData.Makes.Rand();
-        public static string Model => VehicleData.Models.Rand();
-        public static string Trim => VehicleData.Trims.Rand();
+        public static string Make => Read("Vehicle", "VehicleMakes").Rand();
+        public static string Model => Read("Vehicle", "VehicleModels").Rand();
+        public static string Trim => Read("Vehicle", "VehicleTrims").Rand();
     }
 }

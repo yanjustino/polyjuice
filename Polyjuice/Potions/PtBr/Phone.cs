@@ -6,6 +6,7 @@ namespace Polyjuice.Potions.PtBr
 {
     public static class Phone
     {
+        // Private Data
         private static string CountryPrefix => "+55";
         private static string PhoneNumber => "####### ###-####";
         private static int[] AreaCode { get; } = Enumerable.Range(10, 99).ToArray();
@@ -13,6 +14,7 @@ namespace Polyjuice.Potions.PtBr
         private static string MobilePhonePrefix { get; } = "96 97 98 99";
         
         
+        // Properties
         public static string Number => 1.Randomize() == Zero ? HomeWorkPhoneNumber : MobilePhoneNumber;
         public static string HomeWorkPhoneNumber => NewNumber(HomeWorkPhonePrefix.Rand());
         public static string MobilePhoneNumber => NewNumber(MobilePhonePrefix.Rand());
