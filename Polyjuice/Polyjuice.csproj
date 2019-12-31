@@ -7,7 +7,6 @@
         <Company>Emergingcode</Company>
         <PackageDescription>Polyjuice Potion is a potion that allows the drinker to assume the form of someone else.</PackageDescription>
         <RepositoryUrl>https://github.com/emergingcode/polyjuice</RepositoryUrl>
-        <TargetFramework>netstandard2.0</TargetFramework>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Title>Polyjuice is a potion that allows the drinker to assume the form of someone else. Also It's amazing library to improve your stubs tests</Title>
         <Description>It's amazing library to improve your stubs tests. Based on FFaker, a great Ruby test tool, Polyjuice bring the same experiênce to C# developers. Also, Polyjuice is a "dotnet-core" modernization of 'Fact' library.</Description>
@@ -19,29 +18,30 @@
         <PackageTags>tests, dotnet-standard, cshap, software-quality</PackageTags>
         <icon>https://raw.githubusercontent.com/emergingcode/polyjuice/master/docs/logo_64x64.png</icon>
         <PackageIconUrl>https://raw.githubusercontent.com/emergingcode/polyjuice/master/docs/logo_64x64.png</PackageIconUrl>
+        <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
     </PropertyGroup>
 
     <ItemGroup>
-        <None Remove="Potions\Data\Address\*.data"/>
-        <None Remove="Potions\Data\Bank\*.data"/>
-        <None Remove="Potions\Data\Conference\*.data"/>
-        <None Remove="Potions\Data\Gender\*.data"/>
-        <None Remove="Potions\Data\Internet\*.data"/>
-        <None Remove="Potions\Data\Job\*.data"/>
-        <None Remove="Potions\Data\Location\*.data"/>
-        <None Remove="Potions\Data\Name\*.data"/>
-        <None Remove="Potions\Data\Product\*.data"/>
-        <None Remove="Potions\Data\Vehicle\*.data"/>
+        <None Remove="Potions\Data\Address\*.data" />
+        <None Remove="Potions\Data\Bank\*.data" />
+        <None Remove="Potions\Data\Conference\*.data" />
+        <None Remove="Potions\Data\Gender\*.data" />
+        <None Remove="Potions\Data\Internet\*.data" />
+        <None Remove="Potions\Data\Job\*.data" />
+        <None Remove="Potions\Data\Location\*.data" />
+        <None Remove="Potions\Data\Name\*.data" />
+        <None Remove="Potions\Data\Product\*.data" />
+        <None Remove="Potions\Data\Vehicle\*.data" />
 
-        <EmbeddedResource Include="Potions\Data\Address\*.data"/>
-        <EmbeddedResource Include="Potions\Data\Bank\*.data"/>
-        <EmbeddedResource Include="Potions\Data\Conference\*.data"/>
-        <EmbeddedResource Include="Potions\Data\Gender\*.data"/>
-        <EmbeddedResource Include="Potions\Data\Internet\*.data"/>
-        <EmbeddedResource Include="Potions\Data\Job\*.data"/>
-        <EmbeddedResource Include="Potions\Data\Location\*.data"/>
-        <EmbeddedResource Include="Potions\Data\Name\*.data"/>
-        <EmbeddedResource Include="Potions\Data\Product\*.data"/>
-        <EmbeddedResource Include="Potions\Data\Vehicle\*.data"/>        
+        <EmbeddedResource Include="Potions\Data\Address\*.data" />
+        <EmbeddedResource Include="Potions\Data\Bank\*.data" />
+        <EmbeddedResource Include="Potions\Data\Conference\*.data" />
+        <EmbeddedResource Include="Potions\Data\Gender\*.data" />
+        <EmbeddedResource Include="Potions\Data\Internet\*.data" />
+        <EmbeddedResource Include="Potions\Data\Job\*.data" />
+        <EmbeddedResource Include="Potions\Data\Location\*.data" />
+        <EmbeddedResource Include="Potions\Data\Name\*.data" />
+        <EmbeddedResource Include="Potions\Data\Product\*.data" />
+        <EmbeddedResource Include="Potions\Data\Vehicle\*.data" />        
     </ItemGroup>
 </Project>

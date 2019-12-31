@@ -24,7 +24,7 @@ namespace Polyjuice.Potions.PtBr
         public static string FullName => $"{FirstName} {LastName}";
         public static string FemaleNameWithPrefix => $"{FemalePrefix} {FirstNameFemale} {LastName}";
         public static string MaleNameWithPrefix => $"{MalePrefix} {FirstNameMale} {LastName}";
-        public static string NameWithPrefix => new string[] {FemaleNameWithPrefix, MaleNameWithPrefix}.Rand();
+        public static string NameWithPrefix => new[] {FemaleNameWithPrefix, MaleNameWithPrefix}.Rand();
 
     }
 }

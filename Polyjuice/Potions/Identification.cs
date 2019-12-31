@@ -1,5 +1,4 @@
 using Polyjuice.Extension;
-using  static  Polyjuice.Potions.Data.DataReader;
 
 namespace Polyjuice.Potions
 {

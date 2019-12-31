@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using Polyjuice.Potions;
 
 namespace Polyjuice
 {
@@ -9,7 +7,6 @@ namespace Polyjuice
     {
         private static Ergo<T> _ergo;
         private static Dictionary<string, Func<T>> Data { get; } = new Dictionary<string, Func<T>>();
-        private static Dictionary<string, Func<T>> DataType { get; } = new Dictionary<string, Func<T>>();
         public static Ergo<T> Current => _ergo = _ergo ?? new Ergo<T>();
 
         public T this[string when]

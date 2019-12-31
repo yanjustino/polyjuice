@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using NUnit.Framework;
 using Polyjuice.Tests.Models;
 using static Polyjuice.Tests.TestHelper;
@@ -66,8 +67,8 @@ namespace Polyjuice.Tests
             Match("(\\w*(\\s|.|,))", Ergo<PersonAddress>.Current[nameof(PersonAddress)].StateAbbr);
             Match("(\\w*(\\s|.|,))", Ergo<PersonAddress>.Current[nameof(PersonAddress)].StreetName);
             Match("(\\w*(\\s|.|,))", Ergo<PersonAddress>.Current[nameof(PersonAddress)].ZipCode);
-            Match("(\\w*(\\s|.|,))", Ergo<PersonAddress>.Current[nameof(PersonAddress)].Latitude.ToString());
-            Match("(\\w*(\\s|.|,))", Ergo<PersonAddress>.Current[nameof(PersonAddress)].Longitude.ToString());
+            Match("(\\w*(\\s|.|,))", Ergo<PersonAddress>.Current[nameof(PersonAddress)].Latitude.ToString(CultureInfo.InvariantCulture));
+            Match("(\\w*(\\s|.|,))", Ergo<PersonAddress>.Current[nameof(PersonAddress)].Longitude.ToString(CultureInfo.InvariantCulture));
         }     
         
         [Test]
