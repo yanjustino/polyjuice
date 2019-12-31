@@ -20,7 +20,18 @@ namespace Polyjuice.Potions
         public static int LastFiftyYears => DateTime.Now.Year.Randomize(DateTime.Now.Year - 50);
         public static int LastOneHundredYears => DateTime.Now.Year.Randomize(DateTime.Now.Year - 100);
         public static DateTime Date => new DateTime(Year, Month, Day > DateTime.DaysInMonth(Year, Month) ? DateTime.DaysInMonth(Year, Month) : Day);
-        public static DateTime Birthday => new DateTime(DateTime.Now.Year.Randomize((DateTime.Now.Year - 99)), Month, Day > DateTime.DaysInMonth(Year, Month) ? DateTime.DaysInMonth(Year, Month) : Day);
+        public static DateTime Birthday
+        {
+            get
+            {
+                var year = LastOneHundredYears;
+                var month = Month;
+                var day = DateTime.DaysInMonth(Year, month).Randomize(1);
+                
+                return new DateTime(year, month, day);
+            }
+        }
+
         public static TimeSpan Time => new TimeSpan(24.Randomize(), 60.Randomize(), 60.Randomize());
         public static DayOfWeek DayOfWeek => Date.DayOfWeek;        
     }
