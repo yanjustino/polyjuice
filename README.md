@@ -36,7 +36,7 @@ Polyjuice is avaliable on [Nuget](https://www.nuget.org/packages/Polyjuice). NuG
 
 
 ## Using Polyjuice Fakers
-The Polyjuice [fakers](https://github.com/emergingcode/polyjuice/wiki/Polyjuice-Fakers) provides values to objects attributes. You can use Fakers to build `Address`, `Bank`, `Company`, `Conference`, `Country`, `DateAndTime`, `Gender`, `Geolocation`, `Identification`, `Internet`, `Job`, `Locale`, `Name`, `Phone`, `Price`, `Product` and `Vehicle` attributes. The code 1 shown how use the fakers on models
+The Polyjuice [fakers](https://github.com/emergingcode/polyjuice/wiki/Polyjuice-Fakers) provides values to objects attributes. You can use Fakers to build `Address`, `Bank`, `Company`, `Conference`, `Country`, `DateAndTime`, `Gender`, `Geolocation`, `Identification`, `Internet`, `Job`, `Locale`, `Lorem`, `Name`, `Phone`, `Price`, `Product` and `Vehicle` attributes. The code 1 shown how use the fakers on models
 
 
 .
