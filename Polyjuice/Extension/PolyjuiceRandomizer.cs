@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 
@@ -18,12 +20,17 @@ namespace Polyjuice.Extension
             var index = values.Count().Randomize();
             return values[index];
         }
+        
+        public static string[] Rand(this string[] values, int count)
+        {
+            return Enumerable.Range(1, count).Select(i => Rand(values)).ToArray();            
+        }        
 
         public static int Rand(this int[] values)
         {
             var index = values.Count().Randomize();
             return values[index];
-        }
+        }        
 
         public static double[] Rand(this double[,] values)
         {

@@ -32,6 +32,7 @@
         <None Remove="Potions\Data\Name\*.data" />
         <None Remove="Potions\Data\Product\*.data" />
         <None Remove="Potions\Data\Vehicle\*.data" />
+        <None Remove="Potions\Data\Lorem\*.data" />
 
         <EmbeddedResource Include="Potions\Data\Address\*.data" />
         <EmbeddedResource Include="Potions\Data\Bank\*.data" />
@@ -42,6 +43,7 @@
         <EmbeddedResource Include="Potions\Data\Location\*.data" />
         <EmbeddedResource Include="Potions\Data\Name\*.data" />
         <EmbeddedResource Include="Potions\Data\Product\*.data" />
-        <EmbeddedResource Include="Potions\Data\Vehicle\*.data" />        
+        <EmbeddedResource Include="Potions\Data\Vehicle\*.data" />
+        <EmbeddedResource Include="Potions\Data\Lorem\*.data" />
     </ItemGroup>
 </Project>
