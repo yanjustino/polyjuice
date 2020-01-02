@@ -7,12 +7,6 @@ namespace Polyjuice.Potions.Data
 {
     internal static class DataReader
     {
-        public static string[] Read(string data)
-        {
-            var tokens = data.Split('_');
-            return Read(tokens[0], tokens[1]);
-        }
-
         public static string[] Read(string collection, string data)
         {
             var assembly = Assembly.GetExecutingAssembly();
@@ -35,7 +29,7 @@ namespace Polyjuice.Potions.Data
 
         private static string FormatResourceName(Assembly assembly, string resourceName)
         {
-            return assembly.GetName().Name + "." + resourceName.Replace(" ", "_")
+            return assembly.GetName().Name + "." + resourceName?.Replace(" ", "_")
                        .Replace("\\", ".")
                        .Replace("/", ".");
         }
