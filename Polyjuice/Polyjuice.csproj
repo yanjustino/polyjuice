@@ -19,7 +19,16 @@
         <icon>https://raw.githubusercontent.com/emergingcode/polyjuice/master/docs/logo_64x64.png</icon>
         <PackageIconUrl>https://raw.githubusercontent.com/emergingcode/polyjuice/master/docs/logo_64x64.png</PackageIconUrl>
         <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
-    </PropertyGroup>
+    
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+  </ItemGroup>
+
 
     <ItemGroup>
         <None Remove="Potions\Data\Address\*.data" />
