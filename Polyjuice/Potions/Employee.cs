@@ -1,5 +1,4 @@
 using Polyjuice.Extension;
-using static Polyjuice.Potions.Data.DataReader;
 using GlobalCompany = Polyjuice.Potions.Company;
 
 namespace Polyjuice.Potions
@@ -13,6 +12,6 @@ namespace Polyjuice.Potions
         public static string FullName => $"{Username} {Name.LastName}";
         public static string Enrollment => "########".Numerify();
         public static string Company => GlobalCompany.CompanyName;
-        public static string Role => $"{Read("Job", "JobNouns").Rand()}";
+        public static string Role => Job.SummaryTitle;
     }
 }
